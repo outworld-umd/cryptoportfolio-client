@@ -31,7 +31,7 @@ export default class Portfolio extends Vue {
     }
 
     deleteOnClick(item: IPortfolioItem): void {
-        store.dispatch('deletePortfolioItem', item.id);
+        if (confirm("Are you sure you want to delete this item?")) store.dispatch('deletePortfolioItem', item.id);
     }
 
     formatDate(date: Date): string {
