@@ -80,7 +80,7 @@ import { maxLength, required } from "vuelidate/lib/validators";
     }
 })
 export default class PortfolioCreate extends Vue {
-    itemCreate: IPortfolioItemCreate = {
+    itemCreate = {
         crypto: null,
         amount: null,
         dateOfPurchase: null,
