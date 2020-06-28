@@ -11,7 +11,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         cryptoCurrencies: [] as ICryptoCurrency[],
-        portfolioItems: [] as IPortfolioItem[],
+        portfolioItems: [] as IPortfolioItem[]
     },
     mutations: {
         setCryptoCurrencies(state: any, cryptoCurrencies: ICryptoCurrency[]) {
