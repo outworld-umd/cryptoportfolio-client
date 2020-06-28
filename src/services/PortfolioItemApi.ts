@@ -19,7 +19,6 @@ export abstract class PortfolioItemApi {
         const url = "";
         try {
             const response = await this.axios.get<IResponse>(url);
-            console.log('getAll response', response);
             if (response.status === 200) {
                 return response.data.body as IPortfolioItem[];
             }
@@ -45,7 +44,6 @@ export abstract class PortfolioItemApi {
         const url = "delete/" + id;
         try {
             const response = await this.axios.delete<IResponse>(url);
-            console.log('delete response', response);
             if (response.status === 200) {
                 return;
             }

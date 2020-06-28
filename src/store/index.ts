@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
+import Vuex from 'vuex'
 import { CryptoCurrencyApi } from '@/services/CryptoCurrencyApi';
 import { ICryptoCurrency } from "@/domain/ICryptoCurrency";
 import { IPortfolioItem } from "@/domain/IPortfolioItem";
@@ -12,7 +12,6 @@ export default new Vuex.Store({
     state: {
         cryptoCurrencies: [] as ICryptoCurrency[],
         portfolioItems: [] as IPortfolioItem[],
-        errors: [] as string[]
     },
     mutations: {
         setCryptoCurrencies(state: any, cryptoCurrencies: ICryptoCurrency[]) {

@@ -87,10 +87,6 @@ export default class PortfolioCreate extends Vue {
         location: null
     };
 
-    get errors(): string[] {
-        return store.state.errors;
-    }
-
     get currencies(): ICryptoCurrency[] {
         return store.state.cryptoCurrencies;
     }

@@ -18,7 +18,6 @@ export abstract class CryptoCurrencyApi {
         const url = "";
         try {
             const response = await this.axios.get<IResponse>(url);
-            console.log('getAll response', response);
             if (response.status === 200) {
                 return response.data.body as ICryptoCurrency[];
             }
@@ -40,7 +39,6 @@ export abstract class CryptoCurrencyApi {
         const url = "delete/" + id;
         try {
             const response = await this.axios.delete<IResponse>(url);
-            console.log('delete response', response);
             if (response.status === 200) {
                 return;
             }

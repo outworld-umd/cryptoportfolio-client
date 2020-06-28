@@ -44,37 +44,8 @@ export default class Portfolio extends Vue {
         return [day, month, year].join('.');
     }
 
-    beforeCreate(): void {
-        console.log("beforeCreate");
-    }
-
-    created(): void {
-        console.log("created");
-    }
-
-    beforeMount(): void {
-        console.log("beforeMount");
-    }
-
     mounted(): void {
-        console.log("mounted");
         store.dispatch("getPortfolioItems");
-    }
-
-    beforeUpdate(): void {
-        console.log("beforeUpdate");
-    }
-
-    updated(): void {
-        console.log("updated");
-    }
-
-    beforeDestroy(): void {
-        console.log("beforeDestroy");
-    }
-
-    destroyed(): void {
-        console.log("destroyed");
     }
 }
 </script>
