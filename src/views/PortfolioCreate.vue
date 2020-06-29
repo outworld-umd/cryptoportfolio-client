@@ -1,6 +1,14 @@
 <template>
     <thead>
         <tr class="row">
+            <td class="col-sm-2"><small>Cryptocurrency type</small></td>
+            <td class="col-sm-2"><small>Amount</small></td>
+            <td class="col-sm-2"><small>Date of purchase (optional)</small></td>
+            <td class="col-sm-3"><small>Wallet location (optional)</small></td>
+            <td class="col-sm-2"></td>
+            <td class="col-sm-1"></td>
+        </tr>
+        <tr class="row">
             <th class="col-sm-2">
                 <label>
                     <select class="form-control" v-model="$v.itemCreate.crypto.$model">
@@ -26,7 +34,7 @@
             <th class="col-sm-2">
                 <div>
                     <label>
-                        <input class="form-control" v-model.trim="$v.itemCreate.dateOfPurchase.$model" type="date" placeholder="Date of purchase (optional)">
+                        <input class="form-control" v-model.trim="$v.itemCreate.dateOfPurchase.$model" type="date">
                     </label>
                     <small v-if="$v.itemCreate.dateOfPurchase.$error" class="text-danger">
                         <div v-if="!$v.itemCreate.dateOfPurchase.minValue">Date of purchase cannot be in future!</div>
@@ -35,7 +43,7 @@
             </th>
             <th class="col-sm-3">
                 <label>
-                    <input class="form-control" v-model.trim="$v.itemCreate.location.$model" type="text" placeholder="Wallet location (optional)">
+                    <input class="form-control" v-model.trim="$v.itemCreate.location.$model" type="text" placeholder="Location">
                 </label>
                 <small v-if="$v.itemCreate.location.$error" class="text-danger">
                     <div v-if="!$v.itemCreate.location.maxValue">Location description cannot be longer than 100 characters!</div>
