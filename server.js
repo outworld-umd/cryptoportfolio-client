@@ -5,14 +5,14 @@ const cors = require('cors')
 
 const app = express()
 
-app.use(function(request, response) {
-    if(!request.secure) response.redirect("https://" + request.headers.host + request.url);
-});
-
 //here we are configuring dist to serve app files
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
 app.use(cors());
+
+app.use(function(request, response) {
+    if(!request.secure) response.redirect("https://" + request.headers.host + request.url);
+});
 
 // this * route is to serve project on different page routes except root `/`
 app.get(/.*/, function (req, res) {
