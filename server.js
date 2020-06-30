@@ -16,7 +16,6 @@ app.get(/.*/, function (req, res) {
 })
 
 app.use(function(request, response) {
-    console.log("redirecting " + !request.secure)
     if(!request.secure) response.redirect("https://" + request.headers.host + request.url);
 });
 
