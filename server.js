@@ -5,6 +5,10 @@ const cors = require('cors')
 
 const app = express()
 
+app.use(function(request, response) {
+    if(!request.secure) response.redirect("https://" + request.headers.host + request.url);
+});
+
 //here we are configuring dist to serve app files
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
@@ -14,10 +18,6 @@ app.use(cors());
 app.get(/.*/, function (req, res) {
     res.sendFile(path.join(__dirname, '/dist/index.html'))
 })
-
-app.use(function(request, response) {
-    if(!request.secure) response.redirect("https://" + request.headers.host + request.url);
-});
 
 const port = process.env.PORT || 8080
 app.listen(port)
