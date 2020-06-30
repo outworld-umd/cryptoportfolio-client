@@ -5,11 +5,6 @@ const cors = require('cors')
 
 const app = express()
 
-//here we are configuring dist to serve app files
-app.use('/', serveStatic(path.join(__dirname, '/dist')))
-
-app.use(cors());
-
 app.use(function ensureSecure(req, res, next) {
     //Heroku stores the origin protocol in a header variable. The app itself is isolated within the dyno and all request objects have an HTTP protocol.
     if (req.get('X-Forwarded-Proto')==='https' || req.hostname === 'localhost') {
@@ -20,6 +15,11 @@ app.use(function ensureSecure(req, res, next) {
         res.redirect('https://' + req.hostname + req.url);
     }
 });
+
+//here we are configuring dist to serve app files
+app.use('/', serveStatic(path.join(__dirname, '/dist')))
+
+app.use(cors());
 
 // this * route is to serve project on different page routes except root `/`
 app.get(/.*/, function (req, res) {
